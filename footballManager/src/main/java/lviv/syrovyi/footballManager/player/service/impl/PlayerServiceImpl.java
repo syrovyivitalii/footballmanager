@@ -9,11 +9,16 @@ import lviv.syrovyi.footballManager.player.mapper.PlayerMapper;
 import lviv.syrovyi.footballManager.player.repository.PlayerRepository;
 import lviv.syrovyi.footballManager.player.repository.entity.Player;
 import lviv.syrovyi.footballManager.player.service.PlayerService;
+import lviv.syrovyi.footballManager.player.service.filter.PlayerFilter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+
+import static lviv.syrovyi.footballManager.common.specification.SpecificationCustom.*;
 
 @Slf4j
 @Service
@@ -24,8 +29,8 @@ public class PlayerServiceImpl implements PlayerService {
     private final PlayerMapper playerMapper;
 
     @Override
-    public PageResponse<PlayerResponseDTO> getAllPlayers(Pageable pageable) {
-        Page<Player> allPlayers = playerRepository.findAll(pageable);
+    public PageResponse<PlayerResponseDTO> getAllPlayers(PlayerFilter playerFilter, Pageable pageable) {
+        Page<Player> allPlayers = playerRepository.findAll(getSearchSpecification(playerFilter), pageable);
 
         List<PlayerResponseDTO> collectedDTOs = allPlayers
                 .stream()
@@ -48,4 +53,9 @@ public class PlayerServiceImpl implements PlayerService {
 
         return playerMapper.mapToDTO(savedPlayer);
     }
+
+    private Specification<Player> getSearchSpecification(PlayerFilter playerFilter) {
+        return Specification.where((Specification<Player>) searchFieldInCollectionOfIds("id", playerFilter.getId()));
+    }
+
 }

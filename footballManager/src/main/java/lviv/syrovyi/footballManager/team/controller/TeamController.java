@@ -21,7 +21,7 @@ public class TeamController {
 
     private final TeamService teamService;
 
-    @GetMapping
+    @GetMapping("/pageable")
     public ResponseEntity<PageResponse<TeamResponseDTO>> getAllTeams(@ParameterObject Pageable pageable) {
         PageResponse<TeamResponseDTO> allTeams = teamService.getAllTeams(pageable);
 
@@ -29,7 +29,7 @@ public class TeamController {
     }
 
     @PostMapping
-    public ResponseEntity<TeamResponseDTO> createTeam(@Valid @RequestBody TeamRequestDTO teamRequestDTO) {
+    public ResponseEntity<TeamResponseDTO> save(@Valid @RequestBody TeamRequestDTO teamRequestDTO) {
         TeamResponseDTO teamResponseDTO = teamService.save(teamRequestDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(teamResponseDTO);
