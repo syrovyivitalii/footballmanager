@@ -11,7 +11,7 @@ import java.util.UUID;
 public interface TeamService {
     PageResponse<TeamResponseDTO> getAllTeams(Pageable pageable);
 
-    TeamResponseDTO createTeam(TeamRequestDTO teamRequestDTO);
+    TeamResponseDTO save(TeamRequestDTO teamRequestDTO);
 
     TeamResponseDTO getTeamById(UUID id);
 

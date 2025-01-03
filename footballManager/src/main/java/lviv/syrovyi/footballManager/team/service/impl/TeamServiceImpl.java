@@ -46,7 +46,7 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public TeamResponseDTO createTeam(TeamRequestDTO teamRequestDTO) {
+    public TeamResponseDTO save (TeamRequestDTO teamRequestDTO) {
         Team team = teamMapper.mapToEntity(teamRequestDTO);
 
         Team savedTeam = teamRepository.save(team);

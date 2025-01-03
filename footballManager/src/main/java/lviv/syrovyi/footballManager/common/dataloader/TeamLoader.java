@@ -31,7 +31,7 @@ public class TeamLoader implements Consumer<List<Map<String, Object>>> {
                         ((List<HashMap>) x.get("teams")).forEach(y -> {
                             TeamRequestDTO teamRequestDTO = mapper.convertValue(y, TeamRequestDTO.class);
                             if (!teamService.existTeamByName(teamRequestDTO.getName())) {
-                                teamService.createTeam(teamRequestDTO);
+                                teamService.save(teamRequestDTO);
                             }
                         })
                 );

@@ -3,6 +3,7 @@ package lviv.syrovyi.footballManager.player.service.impl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lviv.syrovyi.footballManager.common.dto.response.PageResponse;
+import lviv.syrovyi.footballManager.player.controller.dto.request.PlayerRequestDTO;
 import lviv.syrovyi.footballManager.player.controller.dto.response.PlayerResponseDTO;
 import lviv.syrovyi.footballManager.player.mapper.PlayerMapper;
 import lviv.syrovyi.footballManager.player.repository.PlayerRepository;
@@ -37,5 +38,14 @@ public class PlayerServiceImpl implements PlayerService {
                 .totalElements(allPlayers.getTotalElements())
                 .content(collectedDTOs)
                 .build();
+    }
+
+    @Override
+    public PlayerResponseDTO save(PlayerRequestDTO playerRequestDTO) {
+        Player player = playerMapper.mapToEntity(playerRequestDTO);
+
+        Player savedPlayer = playerRepository.save(player);
+
+        return playerMapper.mapToDTO(savedPlayer);
     }
 }

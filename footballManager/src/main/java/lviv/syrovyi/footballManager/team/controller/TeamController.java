@@ -30,7 +30,7 @@ public class TeamController {
 
     @PostMapping
     public ResponseEntity<TeamResponseDTO> createTeam(@Valid @RequestBody TeamRequestDTO teamRequestDTO) {
-        TeamResponseDTO teamResponseDTO = teamService.createTeam(teamRequestDTO);
+        TeamResponseDTO teamResponseDTO = teamService.save(teamRequestDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(teamResponseDTO);
     }

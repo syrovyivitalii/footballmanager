@@ -2,6 +2,7 @@ package lviv.syrovyi.footballManager.player.controller;
 
 import lombok.RequiredArgsConstructor;
 import lviv.syrovyi.footballManager.common.dto.response.PageResponse;
+import lviv.syrovyi.footballManager.player.controller.dto.request.PlayerRequestDTO;
 import lviv.syrovyi.footballManager.player.controller.dto.response.PlayerResponseDTO;
 import lviv.syrovyi.footballManager.player.service.PlayerService;
 import org.springdoc.core.annotations.ParameterObject;
@@ -9,9 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.SortDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,5 +24,12 @@ public class PlayerController {
         PageResponse<PlayerResponseDTO> allPlayers = playerService.getAllPlayers(pageable);
 
         return ResponseEntity.ok(allPlayers);
+    }
+
+    @PostMapping
+    public ResponseEntity<PlayerResponseDTO> save (@RequestBody PlayerRequestDTO playerRequestDTO) {
+        PlayerResponseDTO savedPlayer = playerService.save(playerRequestDTO);
+
+        return ResponseEntity.ok(savedPlayer);
     }
 }
