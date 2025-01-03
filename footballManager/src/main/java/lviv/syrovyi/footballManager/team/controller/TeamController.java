@@ -1,5 +1,6 @@
 package lviv.syrovyi.footballManager.team.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lviv.syrovyi.footballManager.common.dto.response.PageResponse;
 import lviv.syrovyi.footballManager.team.controller.dto.request.TeamRequestDTO;
@@ -25,6 +26,13 @@ public class TeamController {
         PageResponse<TeamResponseDTO> allTeams = teamService.getAllTeams(pageable);
 
         return ResponseEntity.ok(allTeams);
+    }
+
+    @PostMapping
+    public ResponseEntity<TeamResponseDTO> createTeam(@Valid @RequestBody TeamRequestDTO teamRequestDTO) {
+        TeamResponseDTO teamResponseDTO = teamService.createTeam(teamRequestDTO);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(teamResponseDTO);
     }
 
     @GetMapping("/{teamId}")

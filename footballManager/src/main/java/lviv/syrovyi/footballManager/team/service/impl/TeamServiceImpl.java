@@ -46,6 +46,16 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
+    public TeamResponseDTO createTeam(TeamRequestDTO teamRequestDTO) {
+        Team team = teamMapper.mapToEntity(teamRequestDTO);
+
+        Team savedTeam = teamRepository.save(team);
+
+        return teamMapper.mapToDTO(savedTeam);
+
+    }
+
+    @Override
     public TeamResponseDTO getTeamById(UUID id) {
         Team team = teamRepository.findById(id)
                 .orElseThrow(() -> new ClientBackendException(ErrorCode.TEAM_NOT_FOUND));

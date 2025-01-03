@@ -11,6 +11,8 @@ import java.util.UUID;
 public interface TeamService {
     PageResponse<TeamResponseDTO> getAllTeams(Pageable pageable);
 
+    TeamResponseDTO createTeam(TeamRequestDTO teamRequestDTO);
+
     TeamResponseDTO getTeamById(UUID id);
 
     void deleteTeamById(UUID id);
