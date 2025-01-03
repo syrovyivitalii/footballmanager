@@ -81,4 +81,9 @@ public class TeamServiceImpl implements TeamService {
 
         return teamMapper.mapToDTO(team);
     }
+
+    @Override
+    public boolean existTeamByName(String name) {
+        return teamRepository.existsByName(name);
+    }
 }

@@ -18,4 +18,6 @@ public interface TeamService {
     void deleteTeamById(UUID id);
 
     TeamResponseDTO patchTeam(UUID id, TeamRequestDTO teamRequestDTO);
+
+    boolean existTeamByName(String name);
 }
