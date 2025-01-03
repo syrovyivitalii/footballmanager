@@ -1,12 +1,12 @@
 package lviv.syrovyi.footballManager.team.repository.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import lviv.syrovyi.footballManager.common.entity.BaseEntity;
+import lviv.syrovyi.footballManager.player.repository.entity.Player;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "teams")
@@ -25,4 +25,7 @@ public class Team extends BaseEntity {
 
     @Column(name = "commission_rate")
     private BigDecimal commissionRate;
+
+    @OneToMany(mappedBy = "team", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    private List<Player> players;
 }
