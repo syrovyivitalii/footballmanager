@@ -10,10 +10,6 @@ public enum ErrorCode {
             "Illegal parameter type",
             400),
 
-    INVALID_PAGEABLE_PARAMETERS("400-002",
-            "Invalid pageable parameters entered",
-            400),
-
     //403
     FORBIDDEN(
             "403",

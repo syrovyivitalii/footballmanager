@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import lviv.syrovyi.footballManager.common.dto.response.PageResponse;
 import lviv.syrovyi.footballManager.common.exception.ClientBackendException;
 import lviv.syrovyi.footballManager.common.exception.ErrorCode;
+import lviv.syrovyi.footballManager.team.controller.dto.request.TeamRequestDTO;
 import lviv.syrovyi.footballManager.team.controller.dto.response.TeamResponseDTO;
 import lviv.syrovyi.footballManager.team.mapper.TeamMapper;
 import lviv.syrovyi.footballManager.team.repository.TeamRepository;
@@ -13,6 +14,7 @@ import lviv.syrovyi.footballManager.team.service.TeamService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
@@ -27,10 +29,6 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public PageResponse<TeamResponseDTO> getAllTeams(Pageable pageable) {
-
-        if (pageable.getPageSize() <= 0 || pageable.getPageNumber() <= 0) {
-            throw new ClientBackendException(ErrorCode.INVALID_PAGEABLE_PARAMETERS);
-        }
 
         Page<Team> allTeams = teamRepository.findAll(pageable);
 
@@ -61,5 +59,16 @@ public class TeamServiceImpl implements TeamService {
                 .orElseThrow(() -> new ClientBackendException(ErrorCode.TEAM_NOT_FOUND));
 
         teamRepository.delete(team);
+    }
+
+    @Override
+    @Transactional
+    public TeamResponseDTO patchTeam(UUID id, TeamRequestDTO teamRequestDTO) {
+        Team team = teamRepository.findById(id)
+                .orElseThrow(() -> new ClientBackendException(ErrorCode.TEAM_NOT_FOUND));
+
+        teamMapper.patchMerge(teamRequestDTO, team);
+
+        return teamMapper.mapToDTO(team);
     }
 }

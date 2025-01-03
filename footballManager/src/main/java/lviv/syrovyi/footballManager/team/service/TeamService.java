@@ -1,6 +1,7 @@
 package lviv.syrovyi.footballManager.team.service;
 
 import lviv.syrovyi.footballManager.common.dto.response.PageResponse;
+import lviv.syrovyi.footballManager.team.controller.dto.request.TeamRequestDTO;
 import lviv.syrovyi.footballManager.team.controller.dto.response.TeamResponseDTO;
 import org.springframework.data.domain.Pageable;
 
@@ -13,4 +14,6 @@ public interface TeamService {
     TeamResponseDTO getTeamById(UUID id);
 
     void deleteTeamById(UUID id);
+
+    TeamResponseDTO patchTeam(UUID id, TeamRequestDTO teamRequestDTO);
 }

@@ -2,6 +2,7 @@ package lviv.syrovyi.footballManager.team.controller;
 
 import lombok.RequiredArgsConstructor;
 import lviv.syrovyi.footballManager.common.dto.response.PageResponse;
+import lviv.syrovyi.footballManager.team.controller.dto.request.TeamRequestDTO;
 import lviv.syrovyi.footballManager.team.controller.dto.response.TeamResponseDTO;
 import lviv.syrovyi.footballManager.team.service.TeamService;
 import org.springdoc.core.annotations.ParameterObject;
@@ -33,11 +34,18 @@ public class TeamController {
         return ResponseEntity.ok(teamById);
     }
 
-    @DeleteMapping("{/teamId}")
+    @DeleteMapping("/{teamId}")
     public ResponseEntity<Void> deleteTeamById(@PathVariable UUID teamId) {
         teamService.deleteTeamById(teamId);
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PatchMapping("/{teamId}")
+    public ResponseEntity<TeamResponseDTO> patchTeam(@PathVariable UUID teamId, @RequestBody TeamRequestDTO teamRequestDTO) {
+        TeamResponseDTO teamResponseDTO = teamService.patchTeam(teamId, teamRequestDTO);
+
+        return ResponseEntity.ok(teamResponseDTO);
     }
 
 
