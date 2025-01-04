@@ -40,20 +40,16 @@ public class TransferServiceImpl implements TransferService {
 
         Transfer transfer = transferMapper.mapToEntity(transferRequestDTO);
 
-        if (transfer.getFromTeamId().equals(transfer.getToTeamId())) {
-            throw new ClientBackendException(ErrorCode.SALES_AND_BAYER_TEAM_THE_SAME);
-        }
-
-        Team salesTeam = teamRepository.findById(transfer.getFromTeamId())
-                .orElseThrow(() -> new ClientBackendException(ErrorCode.TEAM_NOT_FOUND));
-        Team bayerTeam = teamRepository.findById(transfer.getToTeamId())
-                .orElseThrow(() -> new ClientBackendException(ErrorCode.TEAM_NOT_FOUND));
         Player player = playerRepository.findById(transfer.getPlayerId())
                 .orElseThrow(() -> new ClientBackendException(ErrorCode.PLAYER_NOT_FOUND));
 
-        if (!playerRepository.existsByPlayerIdAndTeamId(player.getId(), salesTeam.getId())) {
-            throw new ClientBackendException(ErrorCode.PLAYER_NOT_SALES_TEAM_PART);
+        if (player.getTeamId().equals(transfer.getToTeamId())) {
+            throw new ClientBackendException(ErrorCode.SALES_AND_BAYER_TEAM_THE_SAME);
         }
+
+        Team salesTeam = player.getTeam();
+        Team bayerTeam = teamRepository.findById(transfer.getToTeamId())
+                .orElseThrow(() -> new ClientBackendException(ErrorCode.TEAM_NOT_FOUND));
 
         BigDecimal transferPrice = transferCalculationService.calculateTransferPrice(player);
 
@@ -72,6 +68,9 @@ public class TransferServiceImpl implements TransferService {
         teamRepository.saveAll(Arrays.asList(bayerTeam, salesTeam));
         playerRepository.save(player);
 
+        transfer.setFromTeamId(salesTeam.getId());
+        transfer.setTransferPrice(transferPrice);
+        transfer.setCommission(commission);
         transfer.setTotalFee(totalFee);
         Transfer savedTransfer = transferRepository.save(transfer);
 

@@ -9,6 +9,4 @@ import java.util.UUID;
 public interface PlayerRepository extends JpaRepository<Player, UUID>, JpaSpecificationExecutor<Player> {
 
     boolean existsByFirstNameAndLastNameAndAge(String firstName, String lastName, Integer age);
-
-    boolean existsByPlayerIdAndTeamId(UUID playerId, UUID teamId);
 }
