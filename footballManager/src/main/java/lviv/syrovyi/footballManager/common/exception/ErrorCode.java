@@ -23,6 +23,11 @@ public enum ErrorCode {
             "Team not found",
             404
     ),
+    PLAYER_NOT_FOUND(
+            "404-002",
+            "Player not found",
+            404
+    ),
 
     //500
     UNKNOWN_SERVER_ERROR("500",

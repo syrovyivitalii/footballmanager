@@ -3,6 +3,8 @@ package lviv.syrovyi.footballManager.player.service.impl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lviv.syrovyi.footballManager.common.dto.response.PageResponse;
+import lviv.syrovyi.footballManager.common.exception.ClientBackendException;
+import lviv.syrovyi.footballManager.common.exception.ErrorCode;
 import lviv.syrovyi.footballManager.player.controller.dto.request.PlayerRequestDTO;
 import lviv.syrovyi.footballManager.player.controller.dto.response.PlayerResponseDTO;
 import lviv.syrovyi.footballManager.player.mapper.PlayerMapper;
@@ -14,8 +16,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 
 import static lviv.syrovyi.footballManager.common.specification.SpecificationCustom.*;
 
@@ -51,6 +55,25 @@ public class PlayerServiceImpl implements PlayerService {
         Player savedPlayer = playerRepository.save(player);
 
         return playerMapper.mapToDTO(savedPlayer);
+    }
+
+    @Override
+    public void deletePlayer(UUID playerId) {
+        Player player = playerRepository.findById(playerId)
+                .orElseThrow(() -> new ClientBackendException(ErrorCode.PLAYER_NOT_FOUND));
+
+        playerRepository.delete(player);
+    }
+
+    @Transactional
+    @Override
+    public PlayerResponseDTO updatePlayer(UUID playerId, PlayerRequestDTO playerRequestDTO) {
+        Player player = playerRepository.findById(playerId)
+                .orElseThrow(() -> new ClientBackendException(ErrorCode.PLAYER_NOT_FOUND));
+
+        playerMapper.patchMerge(playerRequestDTO, player);
+
+        return playerMapper.mapToDTO(player);
     }
 
     @Override

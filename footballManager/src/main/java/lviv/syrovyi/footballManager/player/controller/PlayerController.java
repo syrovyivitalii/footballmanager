@@ -11,8 +11,11 @@ import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.SortDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -34,5 +37,20 @@ public class PlayerController {
         PlayerResponseDTO savedPlayer = playerService.save(playerRequestDTO);
 
         return ResponseEntity.ok(savedPlayer);
+    }
+
+    @DeleteMapping("/{playerId}")
+    public ResponseEntity<Void> deletePlayer (@PathVariable UUID playerId) {
+        playerService.deletePlayer(playerId);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PatchMapping("/{playerId}")
+    public ResponseEntity<PlayerResponseDTO> updatePlayer (@PathVariable UUID playerId,
+                                                           @Valid @RequestBody PlayerRequestDTO playerRequestDTO) {
+        PlayerResponseDTO updatedPlayer = playerService.updatePlayer(playerId, playerRequestDTO);
+
+        return ResponseEntity.ok(updatedPlayer);
     }
 }

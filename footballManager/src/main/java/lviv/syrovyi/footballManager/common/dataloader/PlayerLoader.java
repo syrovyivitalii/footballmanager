@@ -29,7 +29,6 @@ public class PlayerLoader implements Consumer<List<Map<String, Object>>> {
                 .forEach(x ->
                         ((List<HashMap>) x.get("players")).forEach(y -> {
                             PlayerRequestDTO playerRequestDTO = mapper.convertValue(y, PlayerRequestDTO.class);
-                            // Assign a random teamId if not provided
                             if (playerRequestDTO.getTeamId() == null) {
                                 Optional<UUID> randomTeamId = teamService.getRandomTeamId();
                                 if (randomTeamId.isPresent()) {
@@ -37,10 +36,9 @@ public class PlayerLoader implements Consumer<List<Map<String, Object>>> {
                                 } else {
                                     log.error("No teams available to assign to player: {} {}",
                                             playerRequestDTO.getFirstName(), playerRequestDTO.getLastName());
-                                    return; // Skip saving the player
+                                    return;
                                 }
                             }
-                            // Save the player if not already existing
                             if (!playerService.existsByFirstNameAndLastNameAndAge(
                                     playerRequestDTO.getFirstName(),
                                     playerRequestDTO.getLastName(),

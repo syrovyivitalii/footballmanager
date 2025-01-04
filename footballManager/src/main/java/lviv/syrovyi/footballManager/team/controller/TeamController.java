@@ -10,7 +10,6 @@ import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -51,7 +50,8 @@ public class TeamController {
     }
 
     @PatchMapping("/{teamId}")
-    public ResponseEntity<TeamResponseDTO> patchTeam(@PathVariable UUID teamId, @RequestBody TeamRequestDTO teamRequestDTO) {
+    public ResponseEntity<TeamResponseDTO> patchTeam(@PathVariable UUID teamId,
+                                                     @Valid @RequestBody TeamRequestDTO teamRequestDTO) {
         TeamResponseDTO teamResponseDTO = teamService.patchTeam(teamId, teamRequestDTO);
 
         return ResponseEntity.ok(teamResponseDTO);
