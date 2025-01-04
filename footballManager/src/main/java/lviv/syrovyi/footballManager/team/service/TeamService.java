@@ -6,6 +6,7 @@ import lviv.syrovyi.footballManager.team.controller.dto.response.TeamResponseDTO
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface TeamService {
@@ -20,4 +21,6 @@ public interface TeamService {
     TeamResponseDTO patchTeam(UUID id, TeamRequestDTO teamRequestDTO);
 
     boolean existTeamByName(String name);
+
+    Optional<UUID> getRandomTeamId();
 }

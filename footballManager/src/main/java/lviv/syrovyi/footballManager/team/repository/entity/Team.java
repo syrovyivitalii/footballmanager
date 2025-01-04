@@ -1,6 +1,7 @@
 package lviv.syrovyi.footballManager.team.repository.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import lviv.syrovyi.footballManager.common.entity.BaseEntity;
 import lviv.syrovyi.footballManager.player.repository.entity.Player;
@@ -21,6 +22,7 @@ public class Team extends BaseEntity {
     @Column(nullable = false)
     private String name;
 
+    @NotNull
     private BigDecimal budget;
 
     @Column(name = "commission_rate")

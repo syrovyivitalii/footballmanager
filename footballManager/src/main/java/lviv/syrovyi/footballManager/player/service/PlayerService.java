@@ -12,4 +12,6 @@ public interface PlayerService {
     PageResponse<PlayerResponseDTO> getAllPlayers(PlayerFilter playerFilter, Pageable pageable);
 
     PlayerResponseDTO save (PlayerRequestDTO playerRequestDTO);
+
+    boolean existsByFirstNameAndLastNameAndAge(String firstName, String lastName, Integer age);
 }

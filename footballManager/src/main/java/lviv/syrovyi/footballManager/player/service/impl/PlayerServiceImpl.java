@@ -15,7 +15,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 import static lviv.syrovyi.footballManager.common.specification.SpecificationCustom.*;
@@ -52,6 +51,11 @@ public class PlayerServiceImpl implements PlayerService {
         Player savedPlayer = playerRepository.save(player);
 
         return playerMapper.mapToDTO(savedPlayer);
+    }
+
+    @Override
+    public boolean existsByFirstNameAndLastNameAndAge(String firstName, String lastName, Integer age) {
+        return playerRepository.existsByFirstNameAndLastNameAndAge(firstName, lastName, age);
     }
 
     private Specification<Player> getSearchSpecification(PlayerFilter playerFilter) {

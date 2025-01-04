@@ -1,0 +1,252 @@
+{
+  "players": [
+    {
+      "firstName": "Andrii",
+      "lastName": "Yarmolenko",
+      "age": "30",
+      "experience": "12"
+    },
+    { "firstName": "Oleksandr",
+      "lastName": "Zinchenko",
+      "age": "27",
+      "experience": "8"
+    },
+    { "firstName": "Roman",
+      "lastName": "Yaremchuk",
+      "age": "28",
+      "experience": "10"
+    },
+    { "firstName": "Vitalii",
+      "lastName": "Mykolenko",
+      "age": "25",
+      "experience": "6"
+    },
+    { "firstName": "Ruslan",
+      "lastName": "Malinovskyi",
+      "age": "29",
+      "experience": "9"
+    },
+    { "firstName": "Taras",
+      "lastName": "Stepanenko",
+      "age": "33",
+      "experience": "14"
+    },
+    { "firstName": "Serhii",
+      "lastName": "Sydorchuk",
+      "age": "32",
+      "experience": "12"
+    },
+    { "firstName": "Yevhen",
+      "lastName": "Konoplyanka",
+      "age": "34",
+      "experience": "15"
+    },
+    { "firstName": "Dmytro",
+      "lastName": "Chygrynskiy",
+      "age": "36",
+      "experience": "18"
+    },
+    { "firstName": "Artem",
+      "lastName": "Dovbyk",
+      "age": "26",
+      "experience": "7"
+    },
+    { "firstName": "Mykhailo",
+      "lastName": "Mudryk",
+      "age": "23",
+      "experience": "4"
+    },
+    { "firstName": "Denys",
+      "lastName": "Harmash",
+      "age": "33",
+      "experience": "13"
+    },
+    { "firstName": "Ivan",
+      "lastName": "Petrenko",
+      "age": "21",
+      "experience": "3"
+    },
+    { "firstName": "Yaroslav",
+      "lastName": "Rakitskiy",
+      "age": "34",
+      "experience": "16"
+    },
+    { "firstName": "Bohdan",
+      "lastName": "Mykhaylichenko",
+      "age": "26",
+      "experience": "6"
+    },
+    { "firstName": "Andrii",
+      "lastName": "Lunin",
+      "age": "24",
+      "experience": "5"
+    },
+    { "firstName": "Volodymyr",
+      "lastName": "Shevchenko",
+      "age": "27",
+      "experience": "9"
+    },
+    { "firstName": "Viktor",
+      "lastName": "Kovalenko",
+      "age": "26",
+      "experience": "7"
+    },
+    { "firstName": "Ihor",
+      "lastName": "Kryvtsov",
+      "age": "30",
+      "experience": "11"
+    },
+    { "firstName": "Serhii",
+      "lastName": "Bolbat",
+      "age": "29",
+      "experience": "9"
+    },
+    { "firstName": "Kyrylo",
+      "lastName": "Melnychuk",
+      "age": "20",
+      "experience": "2"
+    },
+    { "firstName": "Petro",
+      "lastName": "Bondarenko",
+      "age": "31",
+      "experience": "12"
+    },
+    { "firstName": "Oleksii",
+      "lastName": "Sobol",
+      "age": "28",
+      "experience": "10"
+    },
+    { "firstName": "Yevhen",
+      "lastName": "Popov",
+      "age": "25",
+      "experience": "6"
+    },
+    { "firstName": "Vitalii",
+      "lastName": "Lysenko",
+      "age": "29",
+      "experience": "10"
+    },
+    { "firstName": "Danylo",
+      "lastName": "Kuznetsov",
+      "age": "24",
+      "experience": "5"
+    },
+    { "firstName": "Mykola",
+      "lastName": "Tkachenko",
+      "age": "27",
+      "experience": "8"
+    },
+    { "firstName": "Maksym",
+      "lastName": "Hrytsenko",
+      "age": "22",
+      "experience": "3"
+    },
+    { "firstName": "Artem",
+      "lastName": "Savchenko",
+      "age": "30",
+      "experience": "11" },
+    { "firstName": "Oleksandr",
+      "lastName": "Marchenko",
+      "age": "26",
+      "experience": "7" },
+    { "firstName": "Borys",
+      "lastName": "Fedorov",
+      "age": "28",
+      "experience": "8" },
+    { "firstName": "Dmytro",
+      "lastName": "Yakovenko",
+      "age": "32",
+      "experience": "13"
+    },
+    { "firstName": "Yurii",
+      "lastName": "Horodetskyi",
+      "age": "30",
+      "experience": "11"
+    },
+    { "firstName": "Andrii",
+      "lastName": "Lyashko",
+      "age": "23",
+      "experience": "4"
+    },
+    { "firstName": "Oleksii",
+      "lastName": "Reznyk",
+      "age": "26",
+      "experience": "6"
+    },
+    { "firstName": "Roman",
+      "lastName": "Shulha",
+      "age": "31",
+      "experience": "12"
+    },
+    { "firstName": "Vitalii",
+      "lastName": "Kotsyuba",
+      "age": "25",
+      "experience": "5"
+    },
+    { "firstName": "Pavlo",
+      "lastName": "Moroz",
+      "age": "24",
+      "experience": "5"
+    },
+    { "firstName": "Stanislav",
+      "lastName": "Sokolov",
+      "age": "28",
+      "experience": "9"
+    },
+    { "firstName": "Yehor",
+      "lastName": "Rudenko",
+      "age": "21",
+      "experience": "2"
+    },
+    { "firstName": "Bohdan",
+      "lastName": "Shcherbak",
+      "age": "27",
+      "experience": "8"
+    },
+    { "firstName": "Taras",
+      "lastName": "Doroshenko",
+      "age": "29",
+      "experience": "9"
+    },
+    { "firstName": "Denys",
+      "lastName": "Shvets",
+      "age": "25",
+      "experience": "6"
+    },
+    { "firstName": "Artem",
+      "lastName": "Karpenko",
+      "age": "30",
+      "experience": "10"
+    },
+    { "firstName": "Oleksandr",
+      "lastName": "Lopatin",
+      "age": "22",
+      "experience": "3"
+    },
+    { "firstName": "Vadym",
+      "lastName": "Polishchuk",
+      "age": "24",
+      "experience": "4"
+    },
+    { "firstName": "Maksym",
+      "lastName": "Ternovyi",
+      "age": "23",
+      "experience": "3"
+    },
+    { "firstName": "Kyrylo",
+      "lastName": "Khomych",
+      "age": "26",
+      "experience": "7"
+    },
+    { "firstName": "Oleksii",
+      "lastName": "Tymoshenko",
+      "age": "30",
+      "experience": "12"
+    },
+    { "firstName": "Volodymyr",
+      "lastName": "Krivko",
+      "age": "28",
+      "experience": "10"
+    }
+  ]
+}

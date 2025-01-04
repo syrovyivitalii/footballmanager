@@ -28,13 +28,16 @@ import static lombok.AccessLevel.PRIVATE;
 public class ApplicationDataLoader {
 
     TeamLoader teamLoader;
+    PlayerLoader playerLoader;
 
     static final String DATA_LOADER_CLASSPATH_LOCATION = "classpath:dataloader";
 
     public void load() {
         String teams = getDataLoaderJsonFullPath("teams");
-
         loadData(teams, teamLoader);
+
+        String players = getDataLoaderJsonFullPath("players");
+        loadData(players, playerLoader);
     }
 
     private String getDataLoaderJsonFullPath(String folders) {
