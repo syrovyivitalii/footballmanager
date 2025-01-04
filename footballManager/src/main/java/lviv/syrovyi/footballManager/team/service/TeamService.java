@@ -5,7 +5,6 @@ import lviv.syrovyi.footballManager.team.controller.dto.request.TeamRequestDTO;
 import lviv.syrovyi.footballManager.team.controller.dto.response.TeamResponseDTO;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 

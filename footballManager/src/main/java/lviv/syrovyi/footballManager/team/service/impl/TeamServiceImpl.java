@@ -51,10 +51,13 @@ public class TeamServiceImpl implements TeamService {
     public TeamResponseDTO save (TeamRequestDTO teamRequestDTO) {
         Team team = teamMapper.mapToEntity(teamRequestDTO);
 
+         if (teamRepository.existsByName(team.getName())){
+             throw new ClientBackendException(ErrorCode.TEAM_ALREADY_EXISTS);
+         };
+
         Team savedTeam = teamRepository.save(team);
 
         return teamMapper.mapToDTO(savedTeam);
-
     }
 
     @Override

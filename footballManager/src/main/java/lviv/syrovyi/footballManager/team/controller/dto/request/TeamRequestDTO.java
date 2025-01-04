@@ -21,9 +21,11 @@ public class TeamRequestDTO {
     private String name;
 
     @Min(value = 0, message = "Budget must be at least 0")
+    @NotNull(message = "Budget is mandatory")
     private BigDecimal budget;
 
     @Min(value = 0, message = "Commission must be at least 0")
     @Max(value = 10, message = "Commission must be at most 10")
+    @NotNull(message = "Commission is mandatory")
     private BigDecimal commissionRate;
 }

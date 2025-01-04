@@ -28,7 +28,31 @@ public enum ErrorCode {
             "Player not found",
             404
     ),
-
+    TEAM_ALREADY_EXISTS(
+            "404-003",
+            "Team already exists",
+            404
+    ),
+    PLAYER_ALREADY_EXISTS(
+            "404-004",
+            "Player already exists",
+            404
+    ),
+    INSUFFICIENT_FUNDS(
+            "404-005",
+            "Insufficient funds to make a transfer",
+            404
+    ),
+    PLAYER_NOT_SALES_TEAM_PART(
+            "404-006",
+            "Player is not sales team part",
+            404
+    ),
+    SALES_AND_BAYER_TEAM_THE_SAME(
+            "404-007",
+            "The selling and buying teams cannot be the same.",
+            404
+    ),
     //500
     UNKNOWN_SERVER_ERROR("500",
             "Unknown server error",
