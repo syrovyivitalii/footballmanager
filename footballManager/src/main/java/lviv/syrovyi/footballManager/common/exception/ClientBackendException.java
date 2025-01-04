@@ -1,7 +1,9 @@
 package lviv.syrovyi.footballManager.common.exception;
 
+import lombok.Getter;
 import org.springframework.util.Assert;
 
+@Getter
 public class ClientBackendException extends RuntimeException {
 
     private final ErrorCode errorCode;
@@ -10,15 +12,5 @@ public class ClientBackendException extends RuntimeException {
         super();
         Assert.notNull(errorCode, "Error code required");
         this.errorCode = errorCode;
-    }
-
-    public ClientBackendException(ErrorCode errorCode, String message){
-        super(message);
-        Assert.notNull(errorCode, "Error code required");
-        this.errorCode = errorCode;
-    }
-
-    public ErrorCode getErrorCode() {
-        return errorCode;
     }
 }

@@ -1,4 +1,4 @@
-package lviv.syrovyi.footballManager.common.swagger;
+package lviv.syrovyi.footballManager.common.config.swagger;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
