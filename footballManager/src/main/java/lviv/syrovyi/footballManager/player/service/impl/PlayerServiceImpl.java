@@ -82,7 +82,13 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     private Specification<Player> getSearchSpecification(PlayerFilter playerFilter) {
-        return Specification.where((Specification<Player>) searchFieldInCollectionOfIds("id", playerFilter.getId()));
+        return Specification.where((Specification<Player>) searchLikeString("firstName", playerFilter.getSearch()))
+                .or((Specification<Player>) searchLikeString("lastName", playerFilter.getSearch()))
+                .or((Specification<Player>) searchLikeStringWithJoin("team", "name", playerFilter.getSearch()))
+                .and((Specification<Player>) searchFieldInCollectionOfIds("id",playerFilter.getIds()))
+                .and((Specification<Player>) searchOnField("age",playerFilter.getAges()))
+                .and((Specification<Player>) searchOnField("experience",playerFilter.getExperiences()));
+
     }
 
 }
