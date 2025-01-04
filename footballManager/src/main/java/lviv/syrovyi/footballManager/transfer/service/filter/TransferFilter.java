@@ -7,8 +7,6 @@ import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 import lviv.syrovyi.footballManager.common.util.filter.SearchFilter;
 
-import java.math.BigDecimal;
-
 import static lombok.AccessLevel.PRIVATE;
 
 @Getter

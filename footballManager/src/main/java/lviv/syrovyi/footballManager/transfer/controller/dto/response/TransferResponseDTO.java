@@ -4,12 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lviv.syrovyi.footballManager.player.controller.dto.response.PlayerResponseDTO;
 import lviv.syrovyi.footballManager.player.controller.dto.response.PlayerTransferredResponseDTO;
-import lviv.syrovyi.footballManager.player.repository.entity.Player;
-import lviv.syrovyi.footballManager.team.controller.dto.response.TeamResponseDTO;
 import lviv.syrovyi.footballManager.team.controller.dto.response.TeamTransferredResponseDTO;
-import lviv.syrovyi.footballManager.team.repository.entity.Team;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

@@ -1,7 +1,5 @@
 package lviv.syrovyi.footballManager.transfer.repository.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lviv.syrovyi.footballManager.common.entity.BaseEntity;
