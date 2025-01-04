@@ -1,8 +1,12 @@
 package lviv.syrovyi.footballManager.transfer.repository.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lviv.syrovyi.footballManager.common.entity.BaseEntity;
+import lviv.syrovyi.footballManager.player.repository.entity.Player;
+import lviv.syrovyi.footballManager.team.repository.entity.Team;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -33,4 +37,16 @@ public class Transfer extends BaseEntity {
 
     @Column(name = "total_fee")
     private BigDecimal totalFee;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "player_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    private Player player;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "from_team_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    private Team salesTeam;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "to_team_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    private Team bayerTeam;
 }
