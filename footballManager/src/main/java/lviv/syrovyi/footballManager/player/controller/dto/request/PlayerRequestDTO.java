@@ -26,7 +26,8 @@ public class PlayerRequestDTO {
     @Max(value = 65, message = "Age must be at most 65")
     private Integer age;
 
-    @Max(value = 50, message = "Experience must be at most 50")
+    @Min(value = 0, message = "Experience must be at least 0")
+    @Max(value = 49, message = "Experience must be at most 49")
     private Integer experience;
 
     @NotNull(message = "Team is mandatory")

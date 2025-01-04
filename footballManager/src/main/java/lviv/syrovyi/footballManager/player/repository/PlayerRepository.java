@@ -10,4 +10,5 @@ public interface PlayerRepository extends JpaRepository<Player, UUID>, JpaSpecif
 
     boolean existsByFirstNameAndLastNameAndAge(String firstName, String lastName, Integer age);
 
+    boolean existsByPlayerIdAndTeamId(UUID playerId, UUID teamId);
 }
