@@ -52,6 +52,10 @@ public class PlayerServiceImpl implements PlayerService {
     public PlayerResponseDTO save(PlayerRequestDTO playerRequestDTO) {
         Player player = playerMapper.mapToEntity(playerRequestDTO);
 
+        if (playerRepository.existsByFirstNameAndLastNameAndAge(player.getFirstName(), player.getLastName(), player.getAge())) {
+            throw new ClientBackendException(ErrorCode.PLAYER_ALREADY_EXISTS);
+        }
+
         Player savedPlayer = playerRepository.save(player);
 
         return playerMapper.mapToDTO(savedPlayer);

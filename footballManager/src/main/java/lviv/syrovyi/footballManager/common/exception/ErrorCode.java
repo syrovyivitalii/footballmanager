@@ -28,6 +28,16 @@ public enum ErrorCode {
             "Player not found",
             404
     ),
+    TEAM_ALREADY_EXISTS(
+            "404-003",
+            "Team already exists",
+            404
+    ),
+    PLAYER_ALREADY_EXISTS(
+            "404-004",
+            "Player already exists",
+            404
+    ),
 
     //500
     UNKNOWN_SERVER_ERROR("500",
