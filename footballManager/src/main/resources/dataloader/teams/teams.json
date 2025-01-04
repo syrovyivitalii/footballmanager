@@ -1,0 +1,54 @@
+{
+  "teams": [
+    {
+      "name": "Dynamo Kyiv",
+      "budget": 658000,
+      "commissionRate": 10
+    },
+    {
+      "name": "Shakhtar Donetsk",
+      "budget": 700000,
+      "commissionRate": 12
+    },
+    {
+      "name": "Zorya Luhansk",
+      "budget": 450000,
+      "commissionRate": 8
+    },
+    {
+      "name": "Dnipro-1",
+      "budget": 530000,
+      "commissionRate": 9
+    },
+    {
+      "name": "Kryvbas Kryvyi Rih",
+      "budget": 460000,
+      "commissionRate": 7
+    },
+    {
+      "name": "Vorskla Poltava",
+      "budget": 420000,
+      "commissionRate": 6
+    },
+    {
+      "name": "Lviv FC",
+      "budget": 390000,
+      "commissionRate": 5
+    },
+    {
+      "name": "Metalist Kharkiv",
+      "budget": 610000,
+      "commissionRate": 10
+    },
+    {
+      "name": "Koloss Kovalivka",
+      "budget": 480000,
+      "commissionRate": 6
+    },
+    {
+      "name": "Desna Chernihiv",
+      "budget": 400000,
+      "commissionRate": 5
+    }
+  ]
+}
