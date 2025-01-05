@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lviv.syrovyi.footballManager.player.controller.dto.response.PlayerTransferredResponseDTO;
-import lviv.syrovyi.footballManager.team.controller.dto.response.TeamTransferredResponseDTO;
+
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -18,9 +17,9 @@ import java.util.UUID;
 public class TransferResponseDTO {
 
     private UUID id;
-    private PlayerTransferredResponseDTO player;
-    private TeamTransferredResponseDTO salesTeam;
-    private TeamTransferredResponseDTO bayerTeam;
+    private UUID playerId;
+    private UUID fromTeamId;
+    private UUID toTeamId;
     private BigDecimal transferPrice;
     private BigDecimal commission;
     private BigDecimal totalFee;
