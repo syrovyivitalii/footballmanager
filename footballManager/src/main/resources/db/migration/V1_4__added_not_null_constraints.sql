@@ -1,5 +1,0 @@
-ALTER TABLE teams
-    ALTER COLUMN budget SET NOT NULL;
-
-ALTER TABLE teams
-    ALTER COLUMN commission_rate SET NOT NULL;
