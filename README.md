@@ -23,7 +23,9 @@
 * Access the REST API documentation using [Swagger](http://localhost:8080/swagger-ui/index.html#/)
 
 ### Postman
-Use Postman or curl to interact with the APIs. Example endpoints:
+* Access the REST API documentation using [Postman](https://www.postman.com/universal-comet-25665/workspace/football-manager-public/collection/20580598-abde953b-a3bd-4161-94be-eb2020316b91?action=share&creator=20580598)
+
+Example endpoints:
 - Transfers
 
   - **GET:** `api/v1/transfers`: fetch all transfers, pageable, with specification
