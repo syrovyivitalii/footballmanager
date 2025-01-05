@@ -1,21 +1,12 @@
 server:
   port: 8080
 spring:
+  profiles:
+    active: docker
   application:
     name: "footballManager"
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://db:5432/footballmanager
-    username: postgres
-    password: postgres
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         show_sql: true
-  liquibase:
-    enabled: true
-    change-log: classpath:/database/project-changelogs.xml
-    url: jdbc:postgresql://db:5432/footballmanager
-    user: postgres
-    password: postgres
