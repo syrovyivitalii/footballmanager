@@ -1,8 +1,8 @@
-CREATE TABLE teams (
+CREATE TABLE IF NOT EXISTS teams (
     id UUID PRIMARY KEY,
     name VARCHAR NOT NULL ,
-    budget DECIMAL(15,2),
-    commission_rate DECIMAL (4,2),
+    budget DECIMAL(15,2) NOT NULL,
+    commission_rate DECIMAL (4,2) NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

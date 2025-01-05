@@ -1,4 +1,4 @@
-CREATE TABLE transfers (
+CREATE TABLE IF NOT EXISTS transfers (
     id UUID PRIMARY KEY,
     player_id UUID NOT NULL,
     from_team_id UUID NOT NULL,
